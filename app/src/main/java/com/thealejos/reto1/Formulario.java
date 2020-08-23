@@ -22,29 +22,26 @@ public class Formulario extends AppCompatActivity {
         editTextApellido = (EditText) findViewById(R.id.apellido);
         editTextTelefono = (EditText) findViewById(R.id.Telefono);
         btnRegistar = (Button) findViewById(R.id.Registrar);
-        btnRegistar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btnRegistar.setOnClickListener(view -> {
 
-                String nombre = editTextNombre.getText().toString();
-                String apellido = editTextApellido.getText().toString();
-                String telefono = editTextTelefono.getText().toString();
+            String nombre = editTextNombre.getText().toString();
+            String apellido = editTextApellido.getText().toString();
+            String telefono = editTextTelefono.getText().toString();
 
-                if(nombre.equals("")){
-                    Toast.makeText(getApplicationContext(), R.string.errorNombre, Toast.LENGTH_LONG).show();
-                }
-                if(apellido.equals("")){
-                    Toast.makeText(getApplicationContext(), R.string.errorApellido, Toast.LENGTH_LONG).show();
-                }
-                if(telefono.equals("")){
-                    Toast.makeText(getApplicationContext(), R.string.errorTelefono, Toast.LENGTH_LONG).show();
-                }
-                if(!nombre.equals("") && !apellido.equals("") && !telefono.equals("")){
-                    Toast.makeText(getApplicationContext(), R.string.registroExitoso, Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(Formulario.this, MainActivity.class));
-                }
-
+            if(nombre.equals("")){
+                Toast.makeText(getApplicationContext(), R.string.errorNombre, Toast.LENGTH_LONG).show();
             }
+            if(apellido.equals("")){
+                Toast.makeText(getApplicationContext(), R.string.errorApellido, Toast.LENGTH_LONG).show();
+            }
+            if(telefono.equals("")){
+                Toast.makeText(getApplicationContext(), R.string.errorTelefono, Toast.LENGTH_LONG).show();
+            }
+            if(!nombre.equals("") && !apellido.equals("") && !telefono.equals("")){
+                Toast.makeText(getApplicationContext(), R.string.registroExitoso, Toast.LENGTH_LONG).show();
+                startActivity(new Intent(Formulario.this, MainActivity.class));
+            }
+
         });
 
     }

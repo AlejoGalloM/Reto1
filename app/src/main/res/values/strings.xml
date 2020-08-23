@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Reto1</string>
     <string name="formulario">Formulario</string>
-    <string name="nombre">nombre</string>
+    <string name="nombre">Nombre</string>
     <string name="apellido">Apellido</string>
     <string name="telefono">Telefono</string>
     <string name="presentacion">"Bienvenido al formulario, por favor diligenciar los campos que aparecen en pantalla "</string>
@@ -10,4 +10,6 @@
     <string name="errorApellido">Por favor ingresar un apellido</string>
     <string name="errorTelefono">Por favor ingrese un teléfono válido</string>
     <string name="registroExitoso">Registro Exitoso</string>
+    <string name="CalcularEdad">Calcular Edad</string>
+    <string name="EquipoDeTrabajo">Equipo</string>
 </resources>
