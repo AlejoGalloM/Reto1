@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.lang.reflect.Array;
@@ -18,26 +19,56 @@ import java.util.Date;
 public class Edad extends AppCompatActivity {
 
 
-    EditText editTextCalendaro;
+    TextView mensajeFecha;
+    Button calcularEdad;
+
+    Calendar calendar;
+    DatePickerDialog datePickerDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edad);
-        editTextCalendaro = (EditText) findViewById(R.id.calendario);
-        editTextCalendaro.setOnClickListener(view -> showDatePickerDialog());
+        mensajeFecha = (TextView) findViewById(R.id.MensajeFecha);
+        calcularEdad = (Button) findViewById(R.id.calcularEdad);
+
+        calcularEdad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calendar = Calendar.getInstance();
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                int month = calendar.get(Calendar.MONTH);
+                int year = calendar.get(Calendar.YEAR);
+
+                datePickerDialog = new DatePickerDialog(Edad.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int nYear, int nMonth, int nDay) {
+                        mensajeFecha.setText(calcularEdad(nYear, nMonth, year, month));
+                    }
+                },day,month,year);
+                datePickerDialog.show();
+            }
+        });
 
     }
 
-    private void showDatePickerDialog() {
-        DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                final String selectedDate = day + " / " + (month + 1) + " / " + year;
-                editTextCalendaro.setText(selectedDate);
+    public String calcularEdad(int anio, int mes, int anioActual, int mesActual){
+        int years = 0;
+        int months = 0;
+        int days = 0;
+        if(anio<anioActual){
+            if(mesActual<=mes){
+                years = anioActual - anio ;
+                months = mesActual - mes;
+            }else{
+                years = anio - anioActual - 1;
+                months = 12 - (mes-mesActual);
             }
-        });
-        newFragment.show(getSupportFragmentManager(), "datePicker");
+            return "Edad: " + years + " años " + months + "meses";
+        }else{
+            return "Valor inválido";
+        }
+
     }
 
 }
