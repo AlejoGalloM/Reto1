@@ -12,4 +12,9 @@
     <string name="registroExitoso">Registro Exitoso</string>
     <string name="CalcularEdad">Calcular Edad</string>
     <string name="EquipoDeTrabajo">Equipo</string>
+    <string name="mensajeFecha">Ingrese su fecha de nacimiento</string>
+    <string name="fecha">Fecha Nacimiento</string>
+    <string name="report_panned_date">report_planned_date</string>
+    <string name="Alejo1">Alejandro Cifuentes</string>
+    <string name="Alejo2">Alejandro Gallo</string>
 </resources>
