@@ -61,7 +61,7 @@ public class Edad extends AppCompatActivity {
                 years = anioActual - anio ;
                 months = mesActual - mes;
             }else{
-                years = anio - anioActual - 1;
+                years = anioActual - anio - 1;
                 months = 12 - (mes-mesActual);
             }
             return "Edad: " + years + " años " + months + "meses";
