@@ -57,7 +57,7 @@ public class Edad extends AppCompatActivity {
         int months = 0;
         int days = 0;
         if(anio<anioActual){
-            if(mesActual<=mes){
+            if(mesActual>=mes){
                 years = anioActual - anio ;
                 months = mesActual - mes;
             }else{
